@@ -45,7 +45,7 @@ class Mail extends BaseController
     public function sent($time = null)
     {
         $directory = FCPATH . '../writable/mail/done/';
-        $scanned_directory = array_diff(scandir($directory), array('..', '.', 'index.html'));
+        $scanned_directory = array_diff(scandir($directory), array('..', '.', 'index.html', '.DS_Store'));
 
         $arr = [];
         foreach($scanned_directory as $key => $file) {
@@ -176,7 +176,7 @@ class Mail extends BaseController
     public function saved($time = null){
 
         $directory = FCPATH . '../writable/mail/saved/';
-        $scanned_directory = array_diff(scandir($directory), array('..', '.', 'index.html'));
+        $scanned_directory = array_diff(scandir($directory), array('..', '.', 'index.html', '.DS_Store'));
 
         $arr = [];
         foreach($scanned_directory as $key => $file) {

@@ -27,11 +27,11 @@
 <!-- Page Content -->
 <div class="content">
     <?php if(has_permission('group.create')): ?>
-        <div class="mb-3 d-flex justify-content-end">
-            <a href="<?php echo route_to('group.create')?>" class="btn btn-alt-primary me-1 mb-3">
-                <i class="fa fa-fw fa-plus me-1"></i> Neue Gruppe
-            </a>
-        </div>
+    <div class="mb-3 d-flex justify-content-end">
+        <a href="<?php echo route_to('group.create')?>" class="btn btn-alt-primary me-1 mb-3">
+            <i class="fa fa-fw fa-plus me-1"></i> Neue Gruppe
+        </a>
+    </div>
     <?php endif; ?>
     <div class="block block-rounded">
 
@@ -39,14 +39,14 @@
 
             <table class="table table-bordered table-striped table-vcenter" id="datatable-groups">
                 <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Beschreibung</th>
-                    <th>actions</th>
-                </tr>
+                    <tr>
+                        <th>Name</th>
+                        <th>Beschreibung</th>
+                        <th>actions</th>
+                    </tr>
                 </thead>
                 <tbody>
-                <?php foreach ($groups as $key => $group): ?>
+                    <?php foreach ($groups as $key => $group): ?>
 
 
                     <tr>
@@ -62,24 +62,22 @@
                         <td class="text-end">
                             <div class="btn-group" role="group">
                                 <?php if((has_permission('group.edit') and $group->id != $defaultGroups['owner']) OR ($group->id == $defaultGroups['owner'] AND array_key_exists($defaultGroups['owner'], user()->roles))): ?>
-                                <a href="<?php echo route_to('group.edit', $group->id)?>" class="btn btn-primary btn-sm"><i class="fa-solid fa-pen-to-square"></i></a>
+                                <a href="<?php echo route_to('group.edit', $group->id)?>"
+                                    class="btn btn-primary btn-sm"><i class="fa-solid fa-pen-to-square"></i></a>
                                 <?php endif; ?>
                                 <?php if((has_permission('group.delete') and !in_array($group->id, $defaultGroups))): ?>
-                                <button class="btn btn-danger btn-sm group_delete_button" data-id="<?=$group->id ?>"><i class="fa-solid fa-trash-can"></i></button>
+                                <button class="btn btn-danger btn-sm group_delete_button" data-id="<?=$group->id ?>"><i
+                                        class="fa-solid fa-trash-can"></i></button>
                                 <?php endif; ?>
                             </div>
 
 
                         </td>
                     </tr>
-                <?php endforeach ?>
+                    <?php endforeach ?>
                 </tbody>
             </table>
         </div>
     </div>
 </div>
 <?= $this->endSection() ?>
-
-
-
-

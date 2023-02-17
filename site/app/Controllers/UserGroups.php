@@ -116,7 +116,10 @@ class UserGroups extends BaseController
 
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-            $group->name = $this->request->getPost('name');
+            if(!in_array($group->id, $this->defaultGroupID)){
+                $group->name = $this->request->getPost('name');
+            }
+            
             $group->description = $this->request->getPost('description');
             $group->mails = ($this->request->getPost('systemmails') == 1) ? 1 : null;
 

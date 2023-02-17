@@ -38,20 +38,27 @@
                     <div class="block-content">
                         <?= csrf_field() ?>
                         <div class="mb-3">
-                            <label for="username">Name</label><input class="form-control <?php if(session('errors.name')) : ?>is-invalid<?php endif ?>" name="name" id="name" type="text" value="<?= $group->name ?>">
+                            <label for="username">Name</label><input
+                                class="form-control <?php if(session('errors.name')) : ?>is-invalid<?php endif ?>"
+                                name="name" id="name" type="text" value="<?= $group->name ?>"
+                                <?=(in_array($group->id, $defaultGroups) ? 'readonly' : '') ?>>
                             <div class="invalid-feedback"><?= session('errors.name') ?></div>
                         </div>
                         <div class="mb-4">
-                            <label for="email">Beschreibung</label><input class="form-control <?php if(session('errors.description')) : ?>is-invalid<?php endif ?>" name="description" id="description" type="text" value="<?= $group->description ?>">
+                            <label for="email">Beschreibung</label><input
+                                class="form-control <?php if(session('errors.description')) : ?>is-invalid<?php endif ?>"
+                                name="description" id="description" type="text" value="<?= $group->description ?>">
                             <div class="invalid-feedback"><?= session('errors.description') ?></div>
                         </div>
                         <div class="mb-4">
                             <label for="email">Systemmails</label>
                             <select name="systemmails" id="systemmails" class="form-select">
                                 <option value="0" <?= (!$group->mails) ? 'selected' : ''?>>Nein</option>
-                                <option value="1"<?= ($group->mails) ? 'selected' : ''?>>Ja</option>
+                                <option value="1" <?= ($group->mails) ? 'selected' : ''?>>Ja</option>
                             </select>
-                            <div class="form-text text-primary">Die Benutzer dieser Gruppe erhalten u.a Benachrichtigungen über neue Anmeldungen wie auch über allfällige Fehlermeldungen. </div>
+                            <div class="form-text text-primary">Die Benutzer dieser Gruppe erhalten u.a
+                                Benachrichtigungen über neue Anmeldungen wie auch über allfällige Fehlermeldungen.
+                            </div>
                         </div>
                         <div class="mb-3">
                             <button type="submit" class="btn btn-alt-primary">
@@ -72,14 +79,18 @@
                     <div class="block-content">
                         <div class="mb-3">
                             <div class="space-y-2">
-                            <?php foreach ($permissions as $permission): ?>
+                                <?php foreach ($permissions as $permission): ?>
 
-                                    <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" value="true" id="permission[<?=$permission['id'] ?>]" name="permission[<?=$permission['id'] ?>]" <?= (array_key_exists($permission['id'],$groupPermissions)) ? 'checked' : ''; ?>>
-                                        <label class="form-check-label" for="permission[<?=$permission['id'] ?>]"><?=$permission['description'] ?></label>
-                                    </div>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" value="true"
+                                        id="permission[<?=$permission['id'] ?>]"
+                                        name="permission[<?=$permission['id'] ?>]"
+                                        <?= (array_key_exists($permission['id'],$groupPermissions)) ? 'checked' : ''; ?>>
+                                    <label class="form-check-label"
+                                        for="permission[<?=$permission['id'] ?>]"><?=$permission['description'] ?></label>
+                                </div>
 
-                            <?php endforeach; ?>
+                                <?php endforeach; ?>
                             </div>
                         </div>
 
@@ -87,7 +98,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <?php endif; ?>
         </div>
     </form>
