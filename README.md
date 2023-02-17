@@ -1,0 +1,6 @@
+# Camp-Manager
+
+https://matrix.to/#/#camp-manager:matrix.hi-net.ch
+
+....
+....

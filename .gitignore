@@ -1,0 +1,156 @@
+#-------------------------
+# Operating Specific Junk Files
+#-------------------------
+
+# OS X
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# OS X Thumbnails
+._*
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# Linux
+*~
+
+# KDE directory preferences
+.directory
+
+# Linux trash folder which might appear on any partition or disk
+.Trash-*
+
+#-------------------------
+# Environment Files
+#-------------------------
+# These should never be under version control,
+# as it poses a security risk.
+site/.env
+/site/pending_install
+
+#-------------------------
+# Public folder
+#-------------------------
+/site/public/src/js/core/
+/site/public/src/scss/core/
+
+#-------------------------
+# Temporary Files
+#-------------------------
+site/writable/cache/*
+!site/writable/cache/index.html
+
+site/writable/logs/*
+!site/writable/logs/index.html
+
+site/writable/mail/*
+!site/writable/mail/index.html
+site/writable/mail/queue/*
+!site/writable/mail/queue/index.html
+site/writable/mail/done/*
+!site/writable/mail/done/index.html
+site/writable/mail/saved/*
+!site/writable/mail/saved/index.html
+
+site/writable/session/*
+!site/writable/session/index.html
+
+site/writable/uploads/*
+!site/writable/uploads/index.html
+
+site/writable/debugbar/*
+
+site/writable/forms/*
+!site/writable/forms/index.html
+!site/writable/forms/default.yaml
+
+php_errors.log
+
+#-------------------------
+# User Guide Temp Files
+#-------------------------
+user_guide_src/build/*
+user_guide_src/cilexer/build/*
+user_guide_src/cilexer/dist/*
+user_guide_src/cilexer/pycilexer.egg-info/*
+
+#-------------------------
+# Test Files
+#-------------------------
+site/tests/coverage*
+
+# Don't save phpunit under version control.
+phpunit
+
+#-------------------------
+# Composer
+#-------------------------
+site/vendor/
+
+#-------------------------
+# Node
+#-------------------------
+site/node_modules/
+
+#-------------------------
+# IDE / Development Files
+#-------------------------
+
+# Modules Testing
+_modules/*
+
+# phpenv local config
+.php-version
+
+# Jetbrains editors (PHPStorm, etc)
+.idea/
+*.iml
+
+# Netbeans
+nbproject/
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+.nb-gradle/
+
+# Sublime Text
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+*.sublime-project
+.phpintel
+/api/
+
+# Visual Studio Code
+.vscode/
+
+/results/
+/phpunit*.xml
+/.phpunit.*.cache
+
+#Docker files and dir
+docker/mysql/data/*
+
+
+
+
