@@ -15,6 +15,17 @@ class InstallController extends BaseController
 
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
+            $text = file_get_contents(ROOTPATH . 'env');
+
+            $search_text = array('[SMTP_HOST]', '[SMTP_USER]', '[SMTP_PASS]', '[SMTP_SECURE]', '[SMTP_PORT]');
+            $replace_text = array(
+                $this->request->getPost('smtp_host'),
+                $this->request->getPost('smtp_username'),
+                $this->request->getPost('smtp_passwort'),
+                $this->request->getPost('smtp_secure'),
+                $this->request->getPost('smtp_port'));
+
+            $text = str_replace($search_text, $replace_text, $text);
 
             $rules = [
                 'username' => 'required|alpha_numeric_space|min_length[3]|max_length[30]',
@@ -23,7 +34,12 @@ class InstallController extends BaseController
                 'name'    => 'required',
                 'site_title'    => 'required',
                 'email_fromMail'  =>  'required',
-                'email_fromName'  =>  'required'
+                'email_fromName'  =>  'required',
+                'smtp_host'  =>  'required',
+                'smtp_username'  =>  'required',
+                'smtp_passwort'  =>  'required',
+                'smtp_secure'  =>  'required',
+                'smtp_port'  =>  'required',
             ];
 
             if (!$this->validate($rules)) {
@@ -59,8 +75,24 @@ class InstallController extends BaseController
             settings()->write('site.title',$this->request->getPost('site_title'));
             settings()->write('email.fromName',$this->request->getPost('email_fromName'));
             settings()->write('email.fromMail',$this->request->getPost('email_fromMail'));
+            settings()->write('email.protocol','smtp');
+
+            settings()->write('smtp.host',$this->request->getPost('smtp_host'));
+            settings()->write('smtp.user',$this->request->getPost('smtp_username'));
+            settings()->write('smtp.pass',$this->request->getPost('smtp_passwort'));
+            settings()->write('smtp.secure',$this->request->getPost('smtp_secure'));
+            settings()->write('smtp.port',$this->request->getPost('smtp_port'));
 
             unlink(ROOTPATH . '/pending_install');
+
+            $email = \Config\Services::email();
+
+            $email->setTo($this->request->getPost('email'));
+
+            $email->setSubject(lang('Camp-Manager Installation'));
+            $email->setMessage('Die Installation wurde erfolgreich abgeschlossen.');
+
+            $email->send();
 
             return redirect()->route('login');
 

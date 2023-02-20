@@ -21,7 +21,6 @@ class Users extends BaseController
     public function index()
     {
 
-
         $userModel = new UserModel();
         $users = $userModel->findAll();
 
@@ -273,14 +272,14 @@ class Users extends BaseController
             $password = createRandomPassword();
 
             $user->setPassword($password);
-            $userModel->save($user);
+            
 
 
             if(!$userModel->errors()){
                 $data['success'] = 1;
                 $email = \Config\Services::email();
 
-                $email->setFrom(settings()->read('email.fromMail'), settings()->read('email.fromName'));
+                //$email->setFrom(settings()->read('email.fromMail'), settings()->read('email.fromName'));
                 $email->setTo($user->email);
 
                 $email->setSubject(lang('User.mailTitleNewPass'));
@@ -288,7 +287,13 @@ class Users extends BaseController
                     'mail' => $user->email,
                     'pass' => $password]));
 
-                $email->send();
+                
+                if($email->send()){
+                    $userModel->save($user);
+                } else {
+                    $data['error'] = 'Fehler beim senden der E-Mail';
+                }
+            
             } else {
                 $data['error'] = lang('User.apiErrorChangePass');
             }

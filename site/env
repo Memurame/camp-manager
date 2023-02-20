@@ -40,10 +40,10 @@ app.appTimezone = 'Europe/Zurich'
 # DATABASE
 #--------------------------------------------------------------------
 
-# database.default.hostname = localhost
-# database.default.database = ci4
-# database.default.username = root
-# database.default.password = root
+database.default.hostname = 'localhost'
+database.default.database = 'camp-manager'
+database.default.username = 'camp-manager'
+database.default.password = '1388user'
 # database.default.DBDriver = MySQLi
 # database.default.DBPrefix =
 

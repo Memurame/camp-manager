@@ -110,7 +110,7 @@ class Email extends BaseConfig
      *
      * @var string
      */
-    public $mailType = 'text';
+    public $mailType = 'html';
 
     /**
      * Character set (utf-8, iso-8859-1, etc.)
@@ -167,4 +167,22 @@ class Email extends BaseConfig
      * @var bool
      */
     public $DSN = false;
+
+    public function __construct()
+    {
+		if(!file_exists(ROOTPATH . '/pending_install')){
+
+			parent::__construct();
+			$this->fromEmail = service('settings')->read('email.fromMail');
+			$this->fromName = service('settings')->read('email.fromName'); 
+            $this->protocol = service('settings')->read('email.protocol'); 
+			$this->SMTPHost = service('settings')->read('smtp.host');
+            $this->SMTPUser = service('settings')->read('smtp.user');
+            $this->SMTPPass = service('settings')->read('smtp.pass');
+            $this->SMTPCrypto = service('settings')->read('smtp.secure');
+            $this->SMTPPort = service('settings')->read('smtp.port');
+		}
+
+    }
+
 }
