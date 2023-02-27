@@ -57,12 +57,6 @@
         </div>
         <!-- END Sign Up Section -->
 
-        <!-- Footer -->
-        <div class="fs-sm text-center text-muted py-3">
-            created by <a class="fw-semibold" href="https://github.com/Memurame/camp-manager"
-                target="_blank">Memurame</a>
-        </div>
-        <!-- END Footer -->
     </div>
 
 
