@@ -59,7 +59,7 @@ site/writable/cache/*
 site/writable/logs/*
 !site/writable/logs/index.html
 
-site/writable/mail/*
+  site/writable/mail/*
 !site/writable/mail/index.html
 site/writable/mail/queue/*
 !site/writable/mail/queue/index.html

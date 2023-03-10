@@ -42,6 +42,8 @@ class AuthController extends Controller
 	 */
 	public function login()
 	{
+
+
 		// No need to show a login form if the user
 		// is already logged in.
 		if ($this->auth->check())
