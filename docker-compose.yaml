@@ -14,9 +14,10 @@ services:
 
   php:
     container_name: "dstack-php"
-    image: bitnami/php-fpm:7.4
+    build:
+      context: .
+      dockerfile: Dockerfile
     volumes:
-      - ./site:/app/site
       - ./docker/php/php.ini:/opt/bitnami/php/etc/conf.d/php.ini:ro
 
   apache:
@@ -37,8 +38,8 @@ services:
     depends_on:
       - mysql
     ports:
-      - '81:8080'
-      - '8143:8443'
+      - '81:8081'
+      - '8143:8444'
     environment:
       - DATABASE_HOST=host.docker.internal
 volumes:
