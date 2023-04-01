@@ -13,11 +13,11 @@
                         <!-- Header -->
                         <div class="text-center">
                             <h1 class="h4  mb-1">
-                                Meine Annmeldungen
+                                Meine Anmeldungen
                             </h1>
 
                             <p class="text-muted mb-3">
-                                Hier siehst du alle anmeldungen welche du unter deinem Namen getätigt hast.
+                                Hier siehst du alle Anmeldungen welche du unter deinem Namen getätigt hast.
                             </p>
                         </div>
 
