@@ -6,6 +6,10 @@ use CodeIgniter\Config\BaseConfig;
 
 class App extends BaseConfig
 {
+
+
+    public $version = '1.1.0';
+
     /**
      * --------------------------------------------------------------------------
      * Base Site URL

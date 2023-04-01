@@ -357,7 +357,7 @@
                                     <td>
                                         <p>Hallo <?= $person->firstname ?></p>
                                         <p>Wir haben deine Anmeldung erhalten.<br>
-                                        Du kannst deinen Annmeldungen jederzeit einsehen und weitere Personen hinzufügen.<br>
+                                        Du kannst deine Annmeldungen jederzeit einsehen und weitere Personen hinzufügen.<br>
                                         Klicke dazu einfach auf folgenden Link.</p>
                                         <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
                                             <tbody>
